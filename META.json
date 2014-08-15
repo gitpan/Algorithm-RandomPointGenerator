@@ -32,7 +32,6 @@
       },
       "runtime" : {
          "requires" : {
-            "File::Basename" : "2.84",
             "Graphics::GnuplotIF" : "1.6",
             "List::Util" : "1.39",
             "Math::Big" : "1.12",
@@ -41,5 +40,5 @@
       }
    },
    "release_status" : "stable",
-   "version" : "1.0"
+   "version" : "1.01"
 }

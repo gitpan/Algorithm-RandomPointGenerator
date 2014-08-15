@@ -10,7 +10,7 @@ package Algorithm::RandomPointGenerator;
 # 2D histogram.
 # ---------------------------------------------------------------------------
 
-use 5.14.0;
+use 5.10.0;
 use strict;
 use Carp;
 use List::Util qw/reduce/;
@@ -20,7 +20,7 @@ use Math::Big qw/euler/;
 use File::Basename;
 use Graphics::GnuplotIF;     
 
-our $VERSION = '1.0';
+our $VERSION = '1.01';
 
 # from perl docs:
 my $_num_regex =  '^[+-]?\ *(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?$'; 
@@ -655,13 +655,19 @@ the module in the form of a 2D histogram.
   #  the starting state of the generator.
 
 
+=head1 CHANGES
+
+Version 1.01 downshifts the version of Perl that is required for this module.  The
+implementation code for the module is unchanged from Version 1.0.
+
+
 =head1 DESCRIPTION
 
 Several testing protocols for "big data" research projects involving large geographic
 areas require a random set of points that are distributed according to a
-user-specified probability density function which is likely to exist in the form of a
-2D histogram.  This module is an implementation of the Metropolis-Hastings algorithm
-for generating such a set of points.
+user-specified probability density function that exists in the form of a 2D
+histogram.  This module is an implementation of the Metropolis-Hastings algorithm for
+generating such a set of points.
 
 =head1 METHODS
 
@@ -934,7 +940,6 @@ This module requires the following three modules:
    Graphics::GnuplotIF
    Math::Big
    Math::Random
-   File::Basename
 
 =head1 EXPORT
 
@@ -948,19 +953,46 @@ the string 'RandomPointGenerator' in the subject line.
 
 =head1 INSTALLATION
 
-The usual
+Download the archive from CPAN in any directory of your choice.  Unpack the archive
+with a command that on a Linux machine would look like:
+
+    tar zxvf Algorithm-RandomPointGenerator-1.01.tar.gz
+
+This will create an installation directory for you whose name will be
+C<Algorithm-RandomPointGenerator-1.01>.  Enter this directory and execute the
+following commands for a standard install of the module if you have root privileges:
 
     perl Makefile.PL
     make
     make test
-    make install
+    sudo make install
 
-if you have root access.  If not, 
+if you do not have root privileges, you can carry out a non-standard install the
+module in any directory of your choice by:
 
     perl Makefile.PL prefix=/some/other/directory/
     make
     make test
-    sudo make install
+    make install
+
+With a non-standard install, you may also have to set your PERL5LIB environment
+variable so that this module can find the required other modules. How you do that
+would depend on what platform you are working on.  In order to install this module in
+a Linux machine on which I use tcsh for the shell, I set the PERL5LIB environment
+variable by
+
+    setenv PERL5LIB /some/other/directory/lib64/perl5/:/some/other/directory/share/perl5/
+
+If I used bash, I'd need to declare:
+
+    export PERL5LIB=/some/other/directory/lib64/perl5/:/some/other/directory/share/perl5/
+
+
+=head1 THANKS
+
+I thank Srezic for pointing out that I needed to downshift the required version of Perl
+for this module.  Fortunately, I had access to an old machine still running Perl
+5.10.1.  The current version is based on my testing the module on that machine.
 
 =head1 AUTHOR
 

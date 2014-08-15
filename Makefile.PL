@@ -1,8 +1,8 @@
 use ExtUtils::MakeMaker;
 use File::Copy;
 
-if ($^V lt v5.14) {
-   die("Algorithm::RandomPointGenerator has only been tested on Perl 5.14.0.\n" .
+if ($^V lt v5.10) {
+   die("Algorithm::RandomPointGenerator has only been tested on Perl 5.10.1.\n" .
    "Your perl version is $].\n");
 }
 
@@ -14,7 +14,6 @@ WriteMakefile(
     PREREQ_PM    => { Math::Random => '0.71',
                       Graphics::GnuplotIF => '1.6',
                       Math::Big => '1.12',
-                      File::Basename => '2.84',
                       List::Util => '1.39',
                     },
     AUTHOR       => 'Avinash Kak (kak@purdue.edu)',

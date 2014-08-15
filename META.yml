@@ -18,9 +18,8 @@ no_index:
     - t
     - inc
 requires:
-  File::Basename: 2.84
   Graphics::GnuplotIF: 1.6
   List::Util: 1.39
   Math::Big: 1.12
   Math::Random: 0.71
-version: 1.0
+version: 1.01
